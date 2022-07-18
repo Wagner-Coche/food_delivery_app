@@ -18,34 +18,18 @@ final _salmon = Food(
     imageUrl: 'assets/images/salmon.jpg', name: 'Salmon Salad', price: 12.99);
 
 
-Food burrito() {
-  return _burrito;
-}
+Food get burrito => _burrito;
 
-Food steak() {
-  return _steak;
-}
+Food get steak => _steak;
 
-Food pasta() {
-  return _pasta;
-}
+Food get pasta => _pasta;
 
-Food ramen() {
-  return _ramen;
-}
+Food get ramen => _ramen;
 
-Food pancakes() {
-  return _pancakes;
-}
+Food get pancakes => _pancakes;
 
-Food burger() {
-  return _burger;
-}
+Food get burger => _burger;
 
-Food pizza() {
-  return _pizza;
-}
+Food get pizza => _pizza;
 
-Food salmon() {
-  return _salmon;
-}
+Food get salmon => _salmon;
