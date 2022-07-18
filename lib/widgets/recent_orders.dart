@@ -108,7 +108,7 @@ class RecentOrders extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 80.0,
+            height: 92.0,
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               padding: const EdgeInsets.only(left: 10.0),
