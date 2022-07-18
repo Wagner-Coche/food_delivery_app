@@ -32,14 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
         actions: <Widget>[
-          TextButton(
-            onPressed: (){}, 
-            child: Text(
-              "Cart (${currentUser.orders.length})",
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 15,
-                fontWeight: FontWeight.w600
+          Container(
+            margin: const EdgeInsets.only(right: 10),
+            child: Center(
+              child: Text(       
+                "Cart (${currentUser.orders.length})",
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600
+                ),
               ),
             )
           )
@@ -47,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: SingleChildScrollView(
         reverse: false,
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: const <Widget>[
             Padding(
@@ -96,51 +97,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
-
-
-/**
- * 
- * 
- * Container(
-              margin: const EdgeInsets.only(left: 10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 6),
-                    child: Text(
-                      element.name,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 6),
-                    child: Text(
-                      element.address,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    child: Text(
-                      "0.2 miles away",
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
- * 
- * 
- */

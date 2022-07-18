@@ -11,7 +11,7 @@ class RecentOrders extends StatelessWidget {
   _buildRecentOrder(BuildContext context, Order order) {
     return Container(
       margin: const EdgeInsets.all(10),
-      width: 250.0,
+      width: 260.0,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15.0),
