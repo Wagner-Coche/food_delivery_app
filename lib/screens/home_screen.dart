@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter/cupertino.dart";
+import 'package:food_delivery_app/data/restaurant_data.dart';
 import 'package:food_delivery_app/widgets/recent_orders.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         backgroundColor: Colors.deepOrangeAccent,
         leading: IconButton(
@@ -45,49 +46,63 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         reverse: false,
         child: Column(
-          children: const <Widget>[
-            SizedBox(
-              child: Padding(
-                padding: EdgeInsets.only(
-                  top: 20,
-                  right: 25,
-                  left: 25,
-                  bottom: 15
-                ),
-                child: TextField(
-                  cursorColor: Colors.deepOrangeAccent,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(vertical: 10),
-                    fillColor: Colors.white,
-                    filled: true,
-                    prefixIcon: Icon(Icons.search, color: Colors.grey, size: 20),
-                    suffixIcon: Icon(Icons.close, color: Colors.grey, size: 20),
-                    hintText: "Search Food or Restaurants",
-                    hintStyle: TextStyle(fontSize: 11.5),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(50)
-                      ),
+          children: <Widget>[
+            const Padding(
+              padding: EdgeInsets.only(
+                top: 20,
+                right: 25,
+                left: 25,
+                bottom: 10
+              ),
+              child: TextField(
+                cursorColor: Colors.deepOrangeAccent,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(vertical: 10),
+                  fillColor: Colors.white,
+                  filled: true,
+                  prefixIcon: Icon(Icons.search, color: Colors.grey, size: 20),
+                  suffixIcon: Icon(Icons.close, color: Colors.grey, size: 20),
+                  hintText: "Search Food or Restaurants",
+                  hintStyle: TextStyle(fontSize: 11.5),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50)
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(50)
-                      ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50)
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(50)
-                      ),
-                      borderSide: BorderSide(
-                        color: Colors.deepOrangeAccent
-                      )
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50)
+                    ),
+                    borderSide: BorderSide(
+                      color: Colors.deepOrangeAccent
                     )
+                  )
+                ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.centerLeft,
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25),
+                child: Text(
+                  "Recent Orders",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1
                   ),
                 ),
               ),
             ),
-            SizedBox(child: RecentOrders())
+            const SizedBox(
+              child: RecentOrders()
+            ),
           ],
         ),
       ),      
