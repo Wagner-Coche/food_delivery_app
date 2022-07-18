@@ -11,8 +11,7 @@ class RecentOrders extends StatelessWidget {
   _buildRecentOrder(BuildContext context, Order order) {
     return Container(
       margin: const EdgeInsets.all(10),
-      height: 100,
-      width: 280.0,
+      width: 250.0,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15.0),
@@ -26,7 +25,7 @@ class RecentOrders extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(right: 10),
             height: MediaQuery.of(context).size.height,
-            width: 100,
+            width: 75,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15.0)
             ),
@@ -44,7 +43,7 @@ class RecentOrders extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  margin: const EdgeInsets.only(bottom: 6),
+                  margin: const EdgeInsets.only(bottom: 2.5),
                   child: Text(
                     order.food.name,
                     style: const TextStyle(
@@ -54,7 +53,7 @@ class RecentOrders extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(bottom: 6),
+                  margin: const EdgeInsets.only(bottom: 2.5),
                   child: Text(
                     order.restaurant.name,
                     style: const TextStyle(
@@ -94,8 +93,22 @@ class RecentOrders extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          Container(
+            alignment: Alignment.centerLeft,
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Text(
+                "Recent Orders",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1
+                ),
+              ),
+            ),
+          ),
           SizedBox(
-            height: 120.0,
+            height: 80.0,
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               padding: const EdgeInsets.only(left: 10.0),
@@ -106,7 +119,7 @@ class RecentOrders extends StatelessWidget {
                 return _buildRecentOrder(context, order);
               }
             ),
-          )
+          ) 
         ],
       ),
     );

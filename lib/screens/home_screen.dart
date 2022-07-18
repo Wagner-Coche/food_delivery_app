@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
 import "package:flutter/cupertino.dart";
 import 'package:food_delivery_app/data/restaurant_data.dart';
+import 'package:food_delivery_app/data/user_data.dart';
+import 'package:food_delivery_app/widgets/nearby_restaurants.dart';
 import 'package:food_delivery_app/widgets/recent_orders.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -32,12 +34,12 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: <Widget>[
           TextButton(
             onPressed: (){}, 
-            child: const Text(
-              "Cart (5)",
-              style: TextStyle(
+            child: Text(
+              "Cart (${currentUser.orders.length})",
+              style: const TextStyle(
                 color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.bold
+                fontSize: 15,
+                fontWeight: FontWeight.w600
               ),
             )
           )
@@ -46,8 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         reverse: false,
         child: Column(
-          children: <Widget>[
-            const Padding(
+          children: const <Widget>[
+            Padding(
               padding: EdgeInsets.only(
                 top: 20,
                 right: 25,
@@ -86,26 +88,59 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: Text(
-                  "Recent Orders",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              child: RecentOrders()
-            ),
+            SizedBox(child: RecentOrders()),
+            SizedBox(child: NearbyRestaurants())
           ],
         ),
       ),      
     );
   }
 }
+
+
+
+
+/**
+ * 
+ * 
+ * Container(
+              margin: const EdgeInsets.only(left: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 6),
+                    child: Text(
+                      element.name,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 6),
+                    child: Text(
+                      element.address,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    child: Text(
+                      "0.2 miles away",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+ * 
+ * 
+ */
