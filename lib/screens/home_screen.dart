@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter/cupertino.dart";
+import 'package:food_delivery_app/widgets/recent_orders.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -42,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        reverse: true,
+        reverse: false,
         child: Column(
           children: const <Widget>[
             SizedBox(
@@ -50,7 +51,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.only(
                   top: 20,
                   right: 25,
-                  left: 25
+                  left: 25,
+                  bottom: 15
                 ),
                 child: TextField(
                   cursorColor: Colors.deepOrangeAccent,
@@ -85,6 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+            SizedBox(child: RecentOrders())
           ],
         ),
       ),      
