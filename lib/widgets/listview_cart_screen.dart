@@ -52,7 +52,7 @@ class _ListViewCartScreenState extends State<ListViewCartScreen> {
                     children: <Widget>[
                       Expanded(
                         child: Text(
-                          cart.food.name + "asasasa asadasada", 
+                          cart.food.name, 
                           style: const TextStyle(
                             fontWeight: FontWeight.bold
                           ),
