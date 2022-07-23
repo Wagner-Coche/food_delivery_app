@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter/cupertino.dart";
 import 'package:food_delivery_app/data/restaurant_data.dart';
 import 'package:food_delivery_app/data/user_data.dart';
+import 'package:food_delivery_app/screens/cart_screen.dart';
 import 'package:food_delivery_app/widgets/nearby_restaurants.dart';
 import 'package:food_delivery_app/widgets/recent_orders.dart';
 
@@ -33,16 +34,19 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           centerTitle: true,
           actions: <Widget>[
-            Container(
-              margin: const EdgeInsets.only(right: 10),
-              child: Center(
-                child: Text(       
-                  "Cart (${currentUser.orders.length})",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600
+            GestureDetector(
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CartScreen())),
+              child: Container(
+                margin: const EdgeInsets.only(right: 10),
+                child: Center(
+                  child: Text(       
+                    "Cart (${currentUser.orders.length})",
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w600
+                    ),
                   ),
-                ),
-              )
+                )
+              ),
             )
           ],
         ),
