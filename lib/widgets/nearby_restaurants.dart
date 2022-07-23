@@ -22,9 +22,7 @@ class _NearbyRestaurantsState extends State<NearbyRestaurants> {
     for (var element in restaurants) {
       listaRestaurants.add(
         GestureDetector(
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (_) => const RestaurantScreen()));
-          },
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => RestaurantScreen(restaurant: element))),
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
             decoration: BoxDecoration(
@@ -39,12 +37,11 @@ class _NearbyRestaurantsState extends State<NearbyRestaurants> {
               children: <Widget>[
                 ClipRRect(
                   borderRadius: BorderRadius.circular(15.0),
-                  child: SizedBox(
+                  child: Image(
                     height: 100,
                     width: 100,
-                    child: Image(
-                      image: AssetImage(element.imageUrl), fit: BoxFit.cover,
-                    ),
+                    image: AssetImage(element.imageUrl), 
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Container(
